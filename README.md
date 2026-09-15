@@ -5,6 +5,7 @@
 ![Version](https://img.shields.io/badge/version-0.1.0-blue)
 ![Stars](https://img.shields.io/github/stars/honeyamn10-source/pyagent)
 ![Forks](https://img.shields.io/github/forks/honeyamn10-source/pyagent)
+![CI](https://github.com/honeyamn10-source/pyagent/actions/workflows/ci.yml/badge.svg)
 
 **A zero-dependency Python framework for building LLM agents.**
 
