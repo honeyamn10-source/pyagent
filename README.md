@@ -85,26 +85,34 @@ does it with zero ceremony.
 
 ## How it works
 
+```mermaid
+sequenceDiagram
+    participant U as Your app
+    participant A as Agent
+    participant M as Memory
+    participant L as BaseLLM<br/>(OpenAICompatibleClient)
+    participant P as pyagent.parse
+    participant T as @tool functions
+
+    U->>A: run("What is 2 + 3?")
+    A->>M: append user message
+    loop until plain-text answer
+        A->>L: chat(messages)
+        L-->>A: raw reply (maybe a tool call)
+        alt reply carries a tool call
+            A->>P: extract_tool_call(raw)
+            P-->>A: {"name", "arguments"}
+            A->>T: execute_tool(name, arguments)
+            T-->>A: result
+            A->>M: append tool result
+        else plain text answer
+            A-->>U: final answer
+        end
+    end
 ```
-        user                       tools
-         │                           ▲
-         ▼                           │
-┌───────────────────┐   result   ┌───┴──────────────┐
-│      Agent        │───────────▶│  ToolRegistry    │
-│  run() loop       │            │  @tool functions │
-└─────────┬─────────┘            └──────────────────┘
-          │ messages
-          ▼
-┌──────────────────────────┐
-│      BaseLLM (ABC)       │
-│   OpenAICompatibleClient │   ← urllib, standard library only
-└────────────┬─────────────┘
-             │ raw output
-             ▼
-┌──────────────────────────┐
-│  pyagent.parse           │   tolerates prose, fences, trailing commas
-│  extract_tool_call()     │
-└──────────────────────────┘
+
+```text
+user message → model → tool call → execute tool → repeat → final answer
 ```
 
 The agent keeps everything in a `Memory` (a plain list of
