@@ -1,5 +1,10 @@
 <!-- pyagent | Bittu Sharma | ultra-level professional README -->
 <p align="center">
+  <img src="docs/assets/logo.svg" alt="PyAgent logo" width="100%" />
+</p>
+
+
+<p align="center">
   <strong style="font-size:3rem;color:#0EA5E9;">pyagent</strong>
 </p>
 <p align="center">
