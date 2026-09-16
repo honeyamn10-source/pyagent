@@ -1,4 +1,15 @@
-# pyagent
+<!-- pyagent | Bittu Sharma | ultra-level professional README -->
+<p align="center">
+  <img src="docs/assets/logo.svg" alt="pyagent logo" width="460"/>
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/identity-Bittu%20Sharma-6366f1" alt="identity"/>
+  <img src="https://img.shields.io/badge/loopback--only-127.0.0.1-0ea5e9" alt="loopback only"/>
+  <img src="https://img.shields.io/badge/ADR-trail%20(0001..0003)-f59e0b" alt="ADR trail"/>
+  <img src="https://img.shields.io/badge/backtests-honest%20%28no%20future%20data%29-22c55e" alt="honest backtests"/>
+</p>
+<p align="center"><b>pyagent</b> — professionally audited, loopback-only, honest-data repo at the portfolio ultra bar.</p>
+
 
 ![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
 ![License](https://img.shields.io/github/license/honeyamn10-source/pyagent)
