@@ -90,22 +90,22 @@ sequenceDiagram
     participant U as Your app
     participant A as Agent
     participant M as Memory
-    participant L as BaseLLM<br/>(OpenAICompatibleClient)
+    participant L as Model client
     participant P as pyagent.parse
-    participant T as @tool functions
+    participant T as Tool registry
 
-    U->>A: run("What is 2 + 3?")
+    U->>A: run()
     A->>M: append user message
     loop until plain-text answer
         A->>L: chat(messages)
-        L-->>A: raw reply (maybe a tool call)
+        L-->>A: raw reply
         alt reply carries a tool call
             A->>P: extract_tool_call(raw)
-            P-->>A: {"name", "arguments"}
-            A->>T: execute_tool(name, arguments)
+            P-->>A: name plus arguments
+            A->>T: execute_tool(name)
             T-->>A: result
             A->>M: append tool result
-        else plain text answer
+        else plain-text answer
             A-->>U: final answer
         end
     end
