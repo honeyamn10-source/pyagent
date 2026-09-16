@@ -1,0 +1,43 @@
+name: Feature request
+description: Suggest a new feature or improvement for pyagent
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing an improvement. Please note that pyagent is a
+        zero-dependency project by design, so features must only use the
+        standard library.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What are you trying to achieve that pyagent cannot do today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How should the feature work? Give a short API sketch if you can.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What workarounds have you tried?
+  - type: input
+    id: scope
+    attributes:
+      label: Estimated scope
+      description: Roughly how big is this change? e.g. small module, new client, breaking API change.
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Confirm these before submitting.
+      options:
+        - label: I understand new code must use only the Python standard library.
+        - label: I'm willing to help implement this if needed.

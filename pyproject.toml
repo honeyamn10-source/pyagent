@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyagent"
+version = "0.1.0"
+description = "A zero-dependency Python framework for building LLM agents."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Bittu Sharma" }]
+keywords = ["llm", "agents", "tool-use", "ai", "zero-dependency", "openai"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/honeyamn10-source/pyagent"
+Source = "https://github.com/honeyamn10-source/pyagent"
+Changelog = "https://github.com/honeyamn10-source/pyagent/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+include = ["pyagent*"]
+
+[tool.setuptools.package-data]
+pyagent = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
