@@ -35,6 +35,9 @@ architectural decision recorded in the ADR trail.
 
 ```bash
 # Clone and install
+
+**38 tracked files · 7 tests · 6 ADRs · 3 workflows** — a real agent framework, docs-first.
+
 git clone https://github.com/honeyamn10-source/pyagent.git
 cd pyagent
 # Follow repo-specific setup instructions
