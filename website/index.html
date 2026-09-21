@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pyagent — minimal agent framework</title>
+  <meta name="description" content="pyagent is a minimal agent framework for Python. BaseLLM, @tool decorator, Memory, RetryPolicy, Hooks. 133 tests, zero dependencies, Python 3.9-3.13.">
+  <meta name="keywords" content="agent framework, AI agent, python, zero dependencies, LLM, tool calling, memory, retry policy, hooks">
+  <meta name="author" content="Bittu Sharma">
+  <link rel="canonical" href="https://honeyamn10-source.github.io/pyagent/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="pyagent">
+  <meta property="og:title" content="pyagent — minimal agent framework">
+  <meta property="og:description" content="Minimal agent framework for Python. Zero deps, BaseLLM, @tool, Memory, RetryPolicy, Hooks. 133 tests.">
+  <meta property="og:url" content="https://honeyamn10-source.github.io/pyagent/">
+  <meta property="og:image" content="https://honeyamn10-source.github.io/pyagent/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="pyagent — minimal agent framework">
+  <meta name="twitter:description" content="Minimal agent framework for Python. Zero deps, BaseLLM, @tool, Memory. 133 tests.">
+  <meta name="twitter:image" content="https://honeyamn10-source.github.io/pyagent/og.png">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#6366f1">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "pyagent",
+    "url": "https://honeyamn10-source.github.io/pyagent/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "OS Independent (Python 3.9-3.13)",
+    "description": "Minimal agent framework for Python. Zero dependencies, BaseLLM, @tool decorator, Memory, RetryPolicy, Hooks.",
+    "author": { "@type": "Person", "name": "Bittu Sharma" },
+    "license": "https://github.com/honeyamn10-source/pyagent/blob/main/LICENSE",
+    "codeRepository": "https://github.com/honeyamn10-source/pyagent"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="pyagent home">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#6366f1"/><text x="32" y="45" font-family="ui-monospace,Consolas,monospace" font-size="34" font-weight="700" fill="#0b0e14" text-anchor="middle">p</text></svg>
+        pyagent
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#core">Core</a>
+        <a href="#tools">Tools</a>
+        <a href="#memory">Memory</a>
+        <a href="#examples">Examples</a>
+        <a href="https://github.com/honeyamn10-source/pyagent" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme">☀️</button>
+      <button class="nav-burger" type="button" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+    </div>
+    <div class="drawer-backdrop"></div>
+    <nav class="mobile-drawer" aria-label="Mobile navigation">
+      <a href="#core">Core</a>
+      <a href="#tools">Tools</a>
+      <a href="#memory">Memory</a>
+      <a href="#examples">Examples</a>
+      <a href="https://github.com/honeyamn10-source/pyagent" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-inner">
+            <span class="status"><span class="dot" aria-hidden="true"></span> v0.1.0 Alpha · MIT · Python 3.9–3.13 · zero deps</span>
+            <h1>Agents. Minimal. Yours.</h1>
+            <p class="lede">pyagent gives you the primitives — BaseLLM, @tool, Memory, RetryPolicy, Hooks — and gets out of your way. 133 tests. Zero dependencies. Python 3.9–3.13.</p>
+            <div class="badge-row">
+              <span class="badge badge-b">133 tests</span>
+              <span class="badge badge-b">zero deps</span>
+              <span class="badge badge-b">Python 3.9–3.13</span>
+              <span class="badge badge-b">MIT</span>
+            </div>
+            <div class="btn-row">
+              <a class="btn btn-primary btn-lg" href="#install">pip install pyagent</a>
+              <a class="btn btn-ghost btn-lg" href="https://github.com/honeyamn10-source/pyagent" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+          <div class="term" role="img" aria-label="Code example">
+            <div class="term-bar"><i class="t1"></i><i class="t2"></i><i class="t3"></i><span>agent.py</span></div>
+            <div class="term-body" data-type="true" data-type-speed="10">
+<span class="c1">from pyagent import Agent, tool, Memory, RetryPolicy</span>
+<span class="c1">from pyagent.llm import MockLLM</span>
+
+<span class="c3">@tool</span>
+<span class="c1">def</span> <span class="c3">search_docs</span>(query: <span class="c1">str</span>) -> <span class="c1">list</span>[<span class="c1">dict</span>]:
+    <span class="c3">\"\"\"Search documentation.\"\"\"</span>
+    <span class="c1">return</span> [<span class="c3">{\"title\": \"API Reference\", \"url\": \"...\"}</span>]
+
+<span class="c3">@tool</span>
+<span class="c1">def</span> <span class="c3">run_code</span>(code: <span class="c1">str</span>) -> <span class="c1">str</span>:
+    <span class="c3">\"\"\"Execute Python safely.\"\"\"</span>
+    <span class="c1">return</span> <span class="c1">exec_sandboxed</span>(code)
+
+<span class="c1">llm =</span> <span class="c3">MockLLM</span>(responses=[
+    <span class="c3">\"I'll search the docs for you.\"</span>,
+    <span class="c3">\"Here's the example you need.\"</span>
+])
+
+<span class="c1">memory =</span> <span class="c3">Memory</span>()
+<span class="c1">agent =</span> <span class="c3">Agent</span>(
+    llm=llm,
+    tools=[search_docs, run_code],
+    memory=memory,
+    retry=RetryPolicy(max_attempts=3),
+)
+
+<span class="c1">result =</span> agent.run(
+    <span class="c3">\"Find the API reference for authentication and show me an example.\"</span>
+)
+<span class="c1">print</span>(result.final_answer)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: var(--space-4);">
+      <div class="wrap">
+        <div class="stats-row">
+          <div class="stat"><div class="stat-value">133</div><div class="stat-label">Tests</div></div>
+          <div class="stat"><div class="stat-value">0</div><div class="stat-label">Dependencies</div></div>
+          <div class="stat"><div class="stat-value">3.9–3.13</div><div class="stat-label">Python Versions</div></div>
+          <div class="stat"><div class="stat-value">MIT</div><div class="stat-label">License</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="core" class="section reveal">
+      <div class="wrap">
+        <h2>Core Primitives</h2>
+        <p class="lede">Five building blocks. Compose them your way.</p>
+        <div class="grid cards">
+          <article class="card"><h3>BaseLLM</h3><p>Abstract interface. Implement <code>generate(messages, tools)</code>. Includes MockLLM, OpenAICompatible, Ollama adapters.</p></article>
+          <article class="card"><h3>@tool Decorator</h3><p>Turn any function into a tool. Auto schema from type hints + docstring. Async & sync support.</p></article>
+          <article class="card"><h3>Agent</h3><p>Orchestrates: LLM → tools → results → LLM. Max steps, streaming, callbacks, error handling.</p></article>
+          <article class="card"><h3>Memory</h3><p>Conversation history + auto-summarization. In-memory, SQLite, custom backends.</p></article>
+          <article class="card"><h3>RetryPolicy</h3><p>Exponential backoff, jitter, configurable exceptions. Applies to LLM + tools.</p></article>
+          <article class="card"><h3>Hooks</h3><p>Lifecycle: on_llm_start/end, on_tool_start/end, on_error. Async supported.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools" class="section alt reveal">
+      <div class="wrap">
+        <h2>Tool System</h2>
+        <p class="lede">Type hints + docstring = full OpenAPI schema. Zero boilerplate.</p>
+        <div class="term" role="img" aria-label="Tool examples">
+          <div class="term-bar"><i class="t1"></i><i class="t2"></i><i class="t3"></i><span>tools.py</span></div>
+          <div class="term-body">
+<span class="c1">from pyagent import tool</span>
+<span class="c1">from typing import Annotated, Literal</span>
+
+<span class="c3">@tool</span>
+<span class="c1">def</span> <span class="c3">http_get</span>(
+    url: <span class="c1">Annotated</span>[<span class="c1">str</span>, <span class="c3">\"URL to fetch\"</span>],
+    timeout: <span class="c1">float</span> = 10.0,
+    headers: <span class="c1">dict</span> | <span class="c1">None</span> = <span class="c1">None</span>
+) -> <span class="c1">str</span>:
+    <span class="c3">\"\"\"Fetch a URL and return text content.\"\"\"</span>
+    <span class="c3">...</span>
+
+<span class="c3">@tool</span>
+<span class="c1">async def</span> <span class="c3">query_db</span>(
+    sql: <span class="c1">Annotated</span>[<span class="c1">str</span>, <span class="c3">\"SELECT query only\"</span>],
+    params: <span class="c1">tuple</span> = ()
+) -> <span class="c1">list</span>[<span class="c1">dict</span>]:
+    <span class="c3">\"\"\"Execute read-only SQL query.\"\"\"</span>
+    <span class="c3">...</span>
+
+<span class="c3">@tool</span>
+<span class="c1">def</span> <span class="c3">calculate</span>(
+    expr: <span class="c1">Annotated</span>[<span class="c1">str</span>, <span class="c3">\"Math expression\"</span>],
+    precision: <span class="c1">int</span> = 10
+) -> <span class="c1">float</span>:
+    <span class="c3">\"\"\"Safe math evaluation.\"\"\"</span>
+    <span class="c3">...</span>
+
+<span class="c1"># Auto-generated schema:</span>
+<span class="c1"># {</span>
+<span class="c1">#   "name": "http_get",</span>
+<span class="c1">#   "description": "Fetch a URL and return text content.",</span>
+<span class="c1">#   "parameters": {</span>
+<span class="c1">#     "type": "object",</span>
+<span class="c1">#     "properties": {</span>
+<span class="c1">#       "url": {"type": "string", "description": "URL to fetch"},</span>
+<span class="c1">#       "timeout": {"type": "number", "default": 10.0},</span>
+<span class="c1">#       "headers": {"type": "object"}</span>
+<span class="c1">#     },</span>
+<span class="c1">#     "required": ["url"]</span>
+<span class="c1">#   }</span>
+<span class="c1"># }</span>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="memory" class="section reveal">
+      <div class="wrap">
+        <h2>Memory System</h2>
+        <p class="lede">Conversation history with auto-summarization. Pluggable backends.</p>
+        <div class="grid cards">
+          <article class="card"><h3>In-Memory</h3><p>Default. Fast, ephemeral. <code>Memory()</code></p></article>
+          <article class="card"><h3>SQLite</h3><p>Persistent. <code>SQLiteMemory("agent.db")</code>. Search, export, multi-session.</p></article>
+          <article class="card"><h3>Summarization</h3><p>Auto-summarizes when token budget exceeded. Configurable threshold + model.</p></article>
+          <article class="card"><h3>Custom Backend</h3><p>Implement <code>MemoryBackend</code> protocol. Redis, Postgres, vector stores.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples" class="section alt reveal">
+      <div class="wrap">
+        <h2>Examples</h2>
+        <div class="grid cards" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+          <article class="card"><h4>Code Assistant</h4><pre><code>@tool
+def read_file(path: str) -> str: ...
+@tool
+def write_file(path: str, content: str) -> str: ...
+@tool
+def run_tests() -> dict: ...
+
+agent = Agent(llm, tools=[read_file, write_file, run_code])</code></pre></article>
+          <article class="card"><h4>Research Agent</h4><pre><code>@tool
+def search(query: str) -> list: ...
+@tool
+def fetch(url: str) -> str: ...
+
+agent = Agent(llm, tools=[search, fetch], memory=SQLiteMemory("research.db"))</code></pre></article>
+          <article class="card"><h4>Data Analyst</h4><pre><code>@tool
+def query(sql: str) -> list[dict]: ...
+@tool
+def plot(data: list, kind: str) -> bytes: ...
+
+agent = Agent(llm, tools=[query, plot], memory=Memory())</code></pre></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="install" class="section reveal">
+      <div class="wrap">
+        <h2>Install</h2>
+        <pre class="term"><code>$ pip install pyagent
+$ python -c "from pyagent import Agent; print('Ready!')"</code></pre>
+        <p class="note">Python 3.9–3.13. Zero dependencies. Works anywhere Python runs.</p>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="wrap">
+        <div class="cta-banner">
+          <h3>Build agents. Not frameworks.</h3>
+          <p style="max-width: 600px; margin: 0 auto var(--space-5);">133 tests. Zero deps. You own the code. Python 3.9–3.13.</p>
+          <div class="btn-row" style="justify-content: center;">
+            <a class="btn btn-primary btn-lg" href="https://github.com/honeyamn10-source/pyagent" target="_blank" rel="noopener">Get pyagent →</a>
+            <a class="btn btn-ghost btn-lg" href="https://github.com/honeyamn10-source/pyagent/blob/main/README.md" target="_blank" rel="noopener">Read Docs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>pyagent v0.1.0 Alpha · <a href="https://github.com/honeyamn10-source/pyagent">GitHub</a> · <a href="https://github.com/honeyamn10-source/pyagent/blob/main/LICENSE">MIT License</a></p>
+    </div>
+  </footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>
