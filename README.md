@@ -2,6 +2,20 @@
 
 # pyagent
 
+<!-- repo-badges:start -->
+<div align="center">
+
+[![Stars](https://img.shields.io/github/stars/honeyamn10-source/pyagent?style=flat-square&logo=github&label=Stars)](https://github.com/honeyamn10-source/pyagent/stargazers)
+[![Forks](https://img.shields.io/github/forks/honeyamn10-source/pyagent?style=flat-square&logo=github&label=Forks)](https://github.com/honeyamn10-source/pyagent/forks)
+[![Issues](https://img.shields.io/github/issues/honeyamn10-source/pyagent?style=flat-square&logo=github&label=Issues)](https://github.com/honeyamn10-source/pyagent/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/honeyamn10-source/pyagent?style=flat-square&logo=github&label=Last%20Commit)](https://github.com/honeyamn10-source/pyagent/commits/main)
+
+[Repository](https://github.com/honeyamn10-source/pyagent) · [Issues](https://github.com/honeyamn10-source/pyagent/issues) · [Pull Requests](https://github.com/honeyamn10-source/pyagent/pulls) · [Actions](https://github.com/honeyamn10-source/pyagent/actions)
+
+</div>
+<!-- repo-badges:end -->
+
+
 A Python framework for model calls, typed tools, conversation memory and middleware, with an OpenAI-compatible client.
 
 [Project website](https://honeyamn10-source.github.io/pyagent/) · [Source](https://github.com/honeyamn10-source/pyagent) · [Build results](https://github.com/honeyamn10-source/pyagent/actions) · [Issues](https://github.com/honeyamn10-source/pyagent/issues)
