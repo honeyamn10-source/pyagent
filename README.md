@@ -15,6 +15,18 @@
 </div>
 <!-- repo-badges:end -->
 
+<!-- professional-meta:start -->
+<div align="center">
+
+[![ci](https://github.com/honeyamn10-source/pyagent/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/honeyamn10-source/pyagent/actions/workflows/ci.yml) [![codeql](https://github.com/honeyamn10-source/pyagent/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/honeyamn10-source/pyagent/actions/workflows/codeql.yml)
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
+
+[Documentation](docs) · [Examples](examples) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Changelog](CHANGELOG.md)
+
+</div>
+<!-- professional-meta:end -->
+
 
 A Python framework for model calls, typed tools, conversation memory and middleware, with an OpenAI-compatible client.
 
